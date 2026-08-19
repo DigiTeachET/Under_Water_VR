@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Ms T's VR Scene</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <!-- CAMERA + CONTROLS -->
+        <!-- Start just above the sea floor, looking into the scene -->
+        <a-entity id="rig" position="0 1.6 4" camera look-controls wasd-controls="acceleration: 15"> </a-entity>
+        <!-- environment -->
+        <a-entity id="undersea-environment" environment="preset: moon; skyType: gradient; skyColor: #3f9f7f; horizonColor: #188a8d; groundTexture: none; groundYScale: 16; ground:canyon; groundColor: #dab984; dressing: none; dressingAmount: 0; fog: 0.7; fogDensity: 0.15; seed: 100; flatShading: false; "></a-entity>
+        <!-- GLOWING “BIOLUMINESCENT” LIGHT SOURCES -->
+        <!-- Small glowing orbs to give an underworld / magic feel -->
+        <a-entity id="glow-orb-1" position="-2 2 -3" animation__float=" property:position; dir:normal; dur:30000; from: -13 2 -3; to: 20 5 -60; loop:true; easing:easeInOutSine " >
+            <a-sphere radius="0.25"material="color: #66ffcc; emissive: #66ffcc; emissiveIntensity: 1.5; metalness: 0; roughness: 1"></a-sphere>
+            <a-light type="point" intensity="0.6" distance="6" color="#66ffcc"></a-light>
+        </a-entity>
+        <!--fish-->
+        <a-entity swim-path="startPos:-30 27.183 -200.5; endPos:30 27.183 200; duration: 50000; startRotationY: 45; endRotationY: 225;">
+            <a-obj-model id="Whale" src="3dObj/blueWhale.obj" mtl="3dObj/blueWhale.mtl" position="0 0 0" rotation="-90 0 0" scale="1 1 1" bobbing="bobbingHeight: 1.0; bobbingDuration: 6000;">
+            </a-obj-model>
+        </a-entity>
+
+        <a-entity swim-path="startPos:-30 27.183 -200.5; endPos:30 27.183 200; duration: 50000; startRotationY: 45; endRotationY: 225;">
+            <a-obj-model id="Whale2" src="3dObj/blueWhale.obj" mtl="3dObj/blueWhale.mtl"position="0 0 0" rotation="-90 0 0" scale=".5 .5 .5" bobbing="bobbingHeight: 1.0; bobbingDuration: 6000;">
+            </a-obj-model>
+        </a-entity>
+
+        <a-entity swim-path="startPos:66.097 15 200; endPos:-30 15 -200; duration: 30000; startRotationY: -135; endRotationY: 45;">
+            <a-obj-model id="Squid" src="3dObj/squid.obj" mtl="3dObj/squid.mtl" position="0 0 0" rotation="-90 -97 0" scale="0.8 0.8 0.8" bobbing="bobbingHeight: 0.8; bobbingDuration: 4000;">
+            </a-obj-model>
+        </a-entity>
+
+        <a-entity swim-path="startPos:66.097 15 200; endPos: -30 15 -200; duration: 30000; startRotationY: -135; endRotationY: 45;">
+            <a-obj-model id="Squid2" src="3dObj/squid.obj" mtl="3dObj/squid.mtl" position="0 0 0" rotation="-90 -97 0" scale="0.2 0.2 0.2" bobbing="bobbingHeight: 0.2; bobbingDuration: 4000;">
+            </a-obj-model>
+        </a-entity>
+
+
+    </a-scene>
+</body>
+</html>
